@@ -1,2 +1,5 @@
-package com.glomaksi.core.view;public interface Close {
+package com.glomaksi.core.frontend.view;
+
+public interface Close {
+    void close();
 }

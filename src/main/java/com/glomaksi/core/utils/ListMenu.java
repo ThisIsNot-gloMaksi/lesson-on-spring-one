@@ -1,5 +1,5 @@
-package com.glomaksi.core.bean;
+package com.glomaksi.core.utils;
 
 public interface ListMenu {
-    String getNameForMenu();
+    String createNameForMenu();
 }

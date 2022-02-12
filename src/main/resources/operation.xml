@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="view.xml"/>
+    <import resource="user.xml"/>
+
+    <bean id="operationQuitApp" class="com.glomaksi.core.bean.OperationQuitApp">
+        <constructor-arg ref="eventClose"/>
+    </bean>
+    <bean id="operationNewUser" class="com.glomaksi.core.bean.OperationNewUser">
+        <constructor-arg name="userService" ref="userService"/>
+        <constructor-arg name="view" ref="view"/>
+    </bean>
+
+    <bean id="operationShowUser" class="com.glomaksi.core.bean.OperationShowUser">
+        <constructor-arg name="userService" ref="userService"/>
+        <constructor-arg name="view" ref="view"/>
+    </bean>
+
+    <bean id="operationService" class="com.glomaksi.core.service.OperationServiceImpl">
+        <constructor-arg>
+            <list>
+                <ref bean="operationNewUser"/>
+                <ref bean="operationShowUser"/>
+                <ref bean="operationQuitApp"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>

@@ -1,12 +1,19 @@
 package com.glomaksi.core.entity;
 
-public class User {
-    private final String name;
-    private final int age;
+import com.glomaksi.core.utils.ListMenu;
 
-    public User(String name, int age) {
+public class User implements ListMenu {
+    private int id;
+    private String name;
+    private int age;
+
+    public User() {
+    }
+
+    public User(int id, String name, int age) {
         this.name = name;
         this.age = age;
+        this.id = id;
     }
 
     public String getName() {
@@ -15,6 +22,24 @@ public class User {
 
     public int getAge() {
         return age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+
+    @Override
+    public String createNameForMenu() {
+        return toString();
     }
 
     @Override

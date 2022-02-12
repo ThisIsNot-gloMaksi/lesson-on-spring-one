@@ -7,7 +7,8 @@ import java.util.List;
 
 public interface UserDao {
     void save(List<User> user) throws IOException;
+
     List<User> getUser() throws IOException;
 
-
+    void close();
 }

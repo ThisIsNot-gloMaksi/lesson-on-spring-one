@@ -1,27 +1,24 @@
 package com.glomaksi.core.service;
 
-import com.glomaksi.core.dao.UserDao;
 import com.glomaksi.core.entity.User;
 
-import java.io.IOException;
 import java.util.List;
 
-public class UserService {
-    private final UserDao userDao;
+public interface UserService {
 
-    public UserService(UserDao userDao) {
-        this.userDao = userDao;
-    }
+    void saveUsers(List<User> users);
 
-    public void printUsers() {
-        try {
-            List<User> list = userDao.getUser();
-            for (User user : list) {
-                System.out.println(user);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    List<User> getUsers();
 
-    }
+    User deleteUser(int id);
+
+    User updateUser(int id, String name);
+
+    User updateUser(int id, int age);
+
+    User updateUser(int id, String name, int age);
+
+    boolean addUser(User user);
+
+    void close();
 }
