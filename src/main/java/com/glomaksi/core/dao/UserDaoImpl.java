@@ -1,7 +1,6 @@
 package com.glomaksi.core.dao;
 
 
-import com.glomaksi.core.bean.Json;
 import com.glomaksi.core.entity.User;
 import com.glomaksi.core.entity.UserList;
 

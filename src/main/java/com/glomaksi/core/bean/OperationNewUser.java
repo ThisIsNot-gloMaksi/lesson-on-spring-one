@@ -19,22 +19,9 @@ public class OperationNewUser implements Operation {
     public void execute() {
         try {
             String name = view.getLine("Введите имя: ");
-            int age = 0;
-            boolean ageIsCorrect = false;
-            while (!ageIsCorrect) {
-                try {
-                    age = view.getNumber("Введите возраст");
-                    if (age > 0) {
-                        ageIsCorrect = true;
-                    } else {
-                        throw new IllegalArgumentException();
-                    }
-                } catch (IllegalArgumentException e) {
-                    view.println("Введите корректный возраст");
-                }
-            }
+            String email = view.getLine("Введите эмайл");
             int id = userService.getUsers().size();
-            userService.addUser(new User(id + 1, name, age));
+            userService.addUser(new User(id + 1, name, email));
         } catch (IOException e) {
             e.printStackTrace();
         }

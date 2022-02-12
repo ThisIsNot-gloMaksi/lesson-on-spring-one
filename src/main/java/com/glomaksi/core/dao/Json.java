@@ -1,4 +1,4 @@
-package com.glomaksi.core.bean;
+package com.glomaksi.core.dao;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;

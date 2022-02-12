@@ -10,13 +10,17 @@ public interface UserService {
 
     List<User> getUsers();
 
+    User getUserById(int id);
+
+    User getUserByName(String name);
+
     User deleteUser(int id);
 
-    User updateUser(int id, String name);
+    User deleteUserByName(String name);
 
-    User updateUser(int id, int age);
+    User updateUser(int id, String name, String email);
 
-    User updateUser(int id, String name, int age);
+    User updateUser(String oldName, String newName, String email);
 
     boolean addUser(User user);
 

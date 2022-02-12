@@ -20,11 +20,23 @@
         <constructor-arg name="view" ref="view"/>
     </bean>
 
+    <bean id="deleteUser" class="com.glomaksi.core.bean.OperationDeleteUser">
+        <constructor-arg name="userService" ref="userService"/>
+        <constructor-arg name="view" ref="view"/>
+    </bean>
+
+    <bean id="operationUpdateUser" class="com.glomaksi.core.bean.OperationUpdateUser">
+        <constructor-arg name="userService" ref="userService"/>
+        <constructor-arg name="view" ref="view"/>
+    </bean>
+
     <bean id="operationService" class="com.glomaksi.core.service.OperationServiceImpl">
         <constructor-arg>
             <list>
                 <ref bean="operationNewUser"/>
                 <ref bean="operationShowUser"/>
+                <ref bean="operationUpdateUser"/>
+                <ref bean="deleteUser"/>
                 <ref bean="operationQuitApp"/>
             </list>
         </constructor-arg>
