@@ -3,10 +3,11 @@ package com.glomaksi.core.bean;
 import com.glomaksi.core.entity.User;
 import com.glomaksi.core.frontend.view.View;
 import com.glomaksi.core.service.UserService;
-import com.glomaksi.core.utils.ConvertToNull;
 import com.glomaksi.core.utils.MenuRender;
+import com.glomaksi.core.utils.OptionalGenerator;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class OperationDeleteUser implements Operation {
     private final UserService userService;
@@ -21,15 +22,14 @@ public class OperationDeleteUser implements Operation {
     public void execute() {
         try {
             view.print(MenuRender.getMenu(userService.getUsers()));
-            String name = view.getLine("Введите имя или id пользователя");
-            Integer id = ConvertToNull.getNumberOrNull(name);
-            User user = null;
+            String str = view.getLine("Введите имя или id пользователя");
+            Optional<Integer> id = OptionalGenerator.getOptionalForNumberValue(str);
+            User user;
 
-            if (id == null) {
-                user = userService.deleteUserByName(name);
-
+            if (id.isPresent()) {
+                user = userService.deleteUser(id.get());
             } else {
-                user = userService.deleteUser(id);
+                user = userService.deleteUserByName(str);
             }
 
             if (user == null) {

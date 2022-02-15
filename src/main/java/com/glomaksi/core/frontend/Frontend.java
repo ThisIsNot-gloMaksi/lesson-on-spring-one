@@ -35,6 +35,8 @@ public class Frontend implements Observer {
                     s.get(operation - 1).execute();
                 } catch (NoSuchOperationException e) {
                     view.println("Неверная операция");
+                } catch (NumberFormatException e) {
+                    view.println("Некорректная операция");
                 }
             }
 

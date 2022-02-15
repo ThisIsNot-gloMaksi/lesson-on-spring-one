@@ -44,6 +44,6 @@ public class User implements ListMenu {
 
     @Override
     public String toString() {
-        return "name: " + name + " email: " + email;
+        return "id: "+ id + " name: " + name + " email: " + email;
     }
 }

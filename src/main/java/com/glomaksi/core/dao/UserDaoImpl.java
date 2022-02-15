@@ -1,25 +1,23 @@
 package com.glomaksi.core.dao;
 
-
 import com.glomaksi.core.entity.User;
 import com.glomaksi.core.entity.UserList;
 
 import java.io.*;
 import java.util.List;
-import java.util.Objects;
 
 public class UserDaoImpl implements UserDao {
     private final BufferedReader reader;
     private BufferedWriter writer;
     private final File file;
-    private final Json json = new Json();
+    private final Json json;
 
-    public UserDaoImpl(String name) throws FileNotFoundException {
-        String path = Objects.requireNonNull(getClass()
-                .getClassLoader().getResource(name)).getPath();
-
-        file = new File(path);
-
+    public UserDaoImpl(String name, Json json) throws IOException {
+        this.json = json;
+        file = new File(name);
+        if (!file.exists()) {
+            file.createNewFile();
+        }
         reader = new BufferedReader(new FileReader(file));
     }
 
@@ -32,7 +30,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<User> getUser() throws IOException {
+    public List<User> getUsers() throws IOException {
         return json.read(reader).getUsers();
     }
 

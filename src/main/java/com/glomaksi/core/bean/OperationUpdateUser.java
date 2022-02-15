@@ -3,10 +3,11 @@ package com.glomaksi.core.bean;
 import com.glomaksi.core.entity.User;
 import com.glomaksi.core.frontend.view.View;
 import com.glomaksi.core.service.UserService;
-import com.glomaksi.core.utils.ConvertToNull;
 import com.glomaksi.core.utils.MenuRender;
+import com.glomaksi.core.utils.OptionalGenerator;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class OperationUpdateUser implements Operation {
     private final UserService userService;
@@ -22,21 +23,19 @@ public class OperationUpdateUser implements Operation {
         try {
             view.print(MenuRender.getMenu(userService.getUsers()));
             String str = view.getLine("Введите имя или id пользователя");
-            Integer id = ConvertToNull.getNumberOrNull(str);
+            Optional<Integer> id = OptionalGenerator.getOptionalForNumberValue(str);
 
-            String newName = ConvertToNull.getNotEmptyOrNullValue(
-                    view.getLine("Введите новое имя или нажмите <enter>"));
+            String newName = view.getLine("Введите новое имя или нажмите <enter>");
 
-            String email = ConvertToNull.getNotEmptyOrNullValue(
-                    view.getLine("Введите новый email или нажмите <enter>"));
+            String email = view.getLine("Введите новый email или нажмите <enter>");
 
-            User user = null;
+            User user;
 
-            if (id == null) {
-                user = userService.updateUser(str, newName, email);
+            if (id.isPresent()) {
+                user = userService.updateUser(id.get(), newName, email);
 
             } else {
-                user = userService.updateUser(id, newName, email);
+                user = userService.updateUser(str, newName, email);
             }
 
             if (user == null) {

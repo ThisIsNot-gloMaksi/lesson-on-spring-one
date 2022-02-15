@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 public class UserServiceImpl implements UserService, Observer {
@@ -36,7 +37,7 @@ public class UserServiceImpl implements UserService, Observer {
     public List<User> getUsers() {
         if (users == null) {
             try {
-                return userDao.getUser();
+                return userDao.getUsers();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -95,11 +96,11 @@ public class UserServiceImpl implements UserService, Observer {
         if (user == null) {
             return null;
         }
-        if (name != null && !user.getName().equals(name)) {
+        if (name.length() > 0 && !user.getName().equals(name)) {
             user.setName(name);
         }
 
-        if (email != null && !email.equals(user.getEmail())) {
+        if (email.length() > 0 && !email.equals(user.getEmail())) {
             user.setEmail(email);
         }
         return user;

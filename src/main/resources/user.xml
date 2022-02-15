@@ -4,8 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="json" class="com.glomaksi.core.dao.JsonImpl"/>
     <bean id="userDao" class="com.glomaksi.core.dao.UserDaoImpl">
         <constructor-arg value="app.json"/>
+        <constructor-arg ref="json"/>
     </bean>
     <bean id="userService" class="com.glomaksi.core.service.UserServiceImpl">
         <constructor-arg name="userDao" ref="userDao"/>

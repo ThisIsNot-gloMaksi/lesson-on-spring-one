@@ -3,6 +3,7 @@ package com.glomaksi.core.service;
 import com.glomaksi.core.entity.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
@@ -25,4 +26,5 @@ public interface UserService {
     boolean addUser(User user);
 
     void close();
+
 }
