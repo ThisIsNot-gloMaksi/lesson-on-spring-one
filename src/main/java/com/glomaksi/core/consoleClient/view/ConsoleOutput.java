@@ -1,4 +1,4 @@
-package com.glomaksi.core.frontend.view;
+package com.glomaksi.core.consoleClient.view;
 
 public class ConsoleOutput implements Output {
 

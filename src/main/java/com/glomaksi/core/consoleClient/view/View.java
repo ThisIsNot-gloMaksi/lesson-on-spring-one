@@ -1,4 +1,4 @@
-package com.glomaksi.core.frontend.view;
+package com.glomaksi.core.consoleClient.view;
 
 import com.glomaksi.core.event.Event;
 import com.glomaksi.core.event.Observer;

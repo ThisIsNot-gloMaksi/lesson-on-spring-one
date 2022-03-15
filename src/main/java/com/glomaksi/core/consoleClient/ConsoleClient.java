@@ -1,23 +1,23 @@
-package com.glomaksi.core.frontend;
+package com.glomaksi.core.consoleClient;
 
 import com.glomaksi.core.bean.Operation;
 import com.glomaksi.core.event.Event;
 import com.glomaksi.core.event.Observer;
 import com.glomaksi.core.exception.NoSuchOperationException;
-import com.glomaksi.core.frontend.view.View;
+import com.glomaksi.core.consoleClient.view.View;
 import com.glomaksi.core.service.OperationService;
 import com.glomaksi.core.utils.MenuRender;
 
 import java.io.IOException;
 import java.util.List;
 
-public class Frontend implements Observer {
+public class ConsoleClient implements Observer {
     private final View view;
     private final OperationService operationService;
     private final Event event;
     private boolean isStart;
 
-    public Frontend(View view, OperationService operationService, Event event) {
+    public ConsoleClient(View view, OperationService operationService, Event event) {
         this.view = view;
         this.operationService = operationService;
         this.event = event;

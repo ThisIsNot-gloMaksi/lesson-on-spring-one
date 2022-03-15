@@ -1,7 +1,7 @@
 package com.glomaksi.core.bean;
 
 import com.glomaksi.core.entity.User;
-import com.glomaksi.core.frontend.view.View;
+import com.glomaksi.core.consoleClient.view.View;
 import com.glomaksi.core.service.UserService;
 import com.glomaksi.core.utils.MenuRender;
 

@@ -1,4 +1,4 @@
-package com.glomaksi.core.frontend.view;
+package com.glomaksi.core.consoleClient.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;

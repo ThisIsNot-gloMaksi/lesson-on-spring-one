@@ -3,9 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="consoleInput" class="com.glomaksi.core.frontend.view.ConsoleInput"/>
-    <bean id="consoleOutput" class="com.glomaksi.core.frontend.view.ConsoleOutput"/>
-    <bean id="view" class="com.glomaksi.core.frontend.view.View">
+    <bean id="consoleInput" class="com.glomaksi.core.consoleClient.view.ConsoleInput"/>
+    <bean id="consoleOutput" class="com.glomaksi.core.consoleClient.view.ConsoleOutput"/>
+    <bean id="view" class="com.glomaksi.core.consoleClient.view.View">
         <constructor-arg ref="consoleInput"/>
         <constructor-arg ref="consoleOutput"/>
         <constructor-arg ref="eventClose"/>

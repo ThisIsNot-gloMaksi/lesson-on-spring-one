@@ -6,7 +6,7 @@
     <import resource="operation.xml"/>
     <import resource="event.xml"/>
 
-    <bean id="frontend" class="com.glomaksi.core.frontend.Frontend">
+    <bean id="consoleClient" class="com.glomaksi.core.consoleClient.ConsoleClient">
         <constructor-arg name="operationService" ref="operationService"/>
         <constructor-arg name="view" ref="view"/>
         <constructor-arg name="event" ref="eventClose"/>
